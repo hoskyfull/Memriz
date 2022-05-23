@@ -11,3 +11,20 @@ Lights on... lights out! Remember that? Maybe you do not but if you do, you migh
 
 
 ---
+
+## User Story
+As a user I want to
+
+.
+.
+.
+.
+.
+.
+
+## Technologies Used:
+HTML
+CSS
+JavaScript (logic and DOM manipulation)
+
+## Wireframes (what game will look like):
