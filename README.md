@@ -1,4 +1,4 @@
-#### Memriz: Challange Your Memory
+#### Memriz: Challenge Your Memory
 
 ---
 
