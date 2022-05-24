@@ -1,5 +1,5 @@
-let boardSize = 20
-
+let boardSize = 8
+let boxesSelected = []
 
 
 // calling the board from the html
@@ -9,7 +9,12 @@ board.style.gridTemplateColumns = 'repeat('+boardSize+', 25px)';
 board.style.gridTemplateRows = 'repeat('+boardSize+', 25px)';
 let tile = null
 let score = 0
-let start = document.getElementById('start')
+let start = document.getElementById('start').addEventListener('click', function (){
+    setInterval(randomSelect, 1000)
+})
+let restart = document.getElementById('restart').addEventListener('click',function(){
+    clearInterval()
+})
 
 
 //Creates all the divs through the DOM and give each box a number 
@@ -30,14 +35,14 @@ const startGame = () => (
     startGame()
 
 // this is the function that does th random selection
-function randomselect (){
+function randomSelect (){
     if (tile === null){
         // console.log(allBoxes) 
     } else {
         allBoxes[tile].style.background = '#eee';
     } 
     // Here, we make computer select a radom box with the math method
-    let randomOne = Math.floor(Math.random()*allBoxes.length)
+    let randomOne = Math.floor(Math.random()*allBoxes.length);
     //console.log just to check
     console.log(allBoxes[randomOne])
     tile = randomOne
@@ -45,22 +50,27 @@ function randomselect (){
     allBoxes[tile].style.background = 'rgb(114, 14, 14)';
     console.log(tile)
 }
+
+function saveRandomArray (){
+
+}
 // each time I click, I will see success and oop if use select the non lit one
 function tileClick (e) {
+    // boxesSelected.push(e.target.id)
     if (e.target.id == tile){
         console.log('Success')
     }else {
         console.log('Oops')
     }
+    // console.log('this is boxes selected: ', boxesSelected)
     // console.log(e.target.id)
 }
-
 
 function startbutton(e){
 
 }
 
-setInterval(randomselect, 1000)
+// setInterval(randomselect, 2000)
 console.log(allBoxes)
 
 
