@@ -1,7 +1,5 @@
 let boardSize = 8
-let boxesSelected = []
-
-
+// let boxesSelected = []
 // calling the board from the html
 let board = document.getElementById('board')
 // here I create the columns and rows
@@ -10,10 +8,11 @@ board.style.gridTemplateRows = 'repeat('+boardSize+', 25px)';
 let tile = null
 let score = 0
 let start = document.getElementById('start').addEventListener('click', function (){
-    setInterval(randomSelect, 1000)
+    t = setInterval(randomSelect, 1000)
 })
-let restart = document.getElementById('restart').addEventListener('click',function(){
-    clearInterval()
+let stop = document.getElementById('restart').addEventListener('click',function(){
+    clearInterval(t)
+    allBoxes[tile].style.background = '#eee';
 })
 
 
@@ -51,9 +50,6 @@ function randomSelect (){
     console.log(tile)
 }
 
-function saveRandomArray (){
-
-}
 // each time I click, I will see success and oop if use select the non lit one
 function tileClick (e) {
     // boxesSelected.push(e.target.id)
