@@ -3,25 +3,26 @@ board.style.gridTemplateColumns = '100px 100px 100px';
 board.style.gridTemplateRows = '100px 100px 100px';
 let tile = null
 
-//Creates all the divs in the DOM and give each box a number 
+//Creates all the divs through the DOM and give each box a number 
 for (let i = 0; i < 9; i++){
     let box = document.createElement('div')
+    //gave the div a class and id
     box.setAttribute('class', 'box')
     //if i do not put a variable and just leave im it will automatically assign a number
     box.setAttribute('id', `${i}`)
     board.appendChild(box);
 }
 
-//WE are making an array of the divs
+//We are making an array of the divs
 let allBoxes = Array.from(document.querySelectorAll('.box'))
 const startGame = () => (
     allBoxes.forEach(tile => tile.addEventListener('click', tileClick)))
     startGame()
 
-// this is the fucntion that does th random selection
+// this is the function that does th random selection
 function randomselect (){
     if (tile === null){
-        console.log(allBoxes) 
+        // console.log(allBoxes) 
     } else {
         allBoxes[tile].style.background = '#eee';
     } 
@@ -30,7 +31,7 @@ function randomselect (){
     //console.log just to check
     console.log(allBoxes[randomOne])
     tile = randomOne
-    ///styling color 
+    ///styling color for the elements that is suppsed to be lit
     allBoxes[tile].style.background = 'rgb(114, 14, 14)';
     console.log(tile)
 }
