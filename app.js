@@ -6,6 +6,7 @@ let board = document.getElementById('board')
 board.style.gridTemplateColumns = 'repeat('+boardSize+', 90px)';
 board.style.gridTemplateRows = 'repeat('+boardSize+', 90px)';
 let tile = null
+let score = 0
 
 //Creates all the divs through the DOM and give each box a number 
 for (let i = 0; i <(boardSize*boardSize); i++){
