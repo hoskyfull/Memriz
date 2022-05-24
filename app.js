@@ -1,12 +1,16 @@
-let boardSize = 8
+let boardSize = 20
+
+
 
 // calling the board from the html
 let board = document.getElementById('board')
 // here I create the columns and rows
-board.style.gridTemplateColumns = 'repeat('+boardSize+', 90px)';
-board.style.gridTemplateRows = 'repeat('+boardSize+', 90px)';
+board.style.gridTemplateColumns = 'repeat('+boardSize+', 25px)';
+board.style.gridTemplateRows = 'repeat('+boardSize+', 25px)';
 let tile = null
 let score = 0
+let start = document.getElementById('start')
+
 
 //Creates all the divs through the DOM and give each box a number 
 for (let i = 0; i <(boardSize*boardSize); i++){
@@ -51,7 +55,12 @@ function tileClick (e) {
     // console.log(e.target.id)
 }
 
-setInterval(randomselect, 5000)
+
+function startbutton(e){
+
+}
+
+setInterval(randomselect, 1000)
 console.log(allBoxes)
 
 
