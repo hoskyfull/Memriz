@@ -1,8 +1,8 @@
-#### Memriz: Challenge Your Memory
+# Memriz: Challenge Your Memory
 
 ---
 
-### Premise
+## Premise
 
 Lights on... lights out! Remember that? Maybe you do not but if you do, you might win. Memri is a game that challenges you memory. The more you win, the harder it gets! 
 

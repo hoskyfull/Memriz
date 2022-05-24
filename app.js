@@ -1,15 +1,20 @@
+let boardSize = 8
+
+// calling the board from the html
 let board = document.getElementById('board')
-board.style.gridTemplateColumns = '100px 100px 100px';
-board.style.gridTemplateRows = '100px 100px 100px';
+// here I create the columns and rows
+board.style.gridTemplateColumns = 'repeat('+boardSize+', 90px)';
+board.style.gridTemplateRows = 'repeat('+boardSize+', 90px)';
 let tile = null
 
 //Creates all the divs through the DOM and give each box a number 
-for (let i = 0; i < 9; i++){
+for (let i = 0; i <(boardSize*boardSize); i++){
     let box = document.createElement('div')
     //gave the div a class and id
     box.setAttribute('class', 'box')
     //if i do not put a variable and just leave im it will automatically assign a number
     box.setAttribute('id', `${i}`)
+    //
     board.appendChild(box);
 }
 
