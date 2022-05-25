@@ -18,7 +18,7 @@ function restart (){
     succesClick = 0
 }
 let stop = document.getElementById('restart').addEventListener('click', restart)
-let scoreBoard = document.getElementById('scoreBox')
+let scoreBoard = document.getElementById('score')
 scoreBoard.innerText = score
 
 //Creates all the divs through the DOM and give each box a number 
@@ -44,16 +44,29 @@ const startGame = () => (
 // this is the function that does th random selection
 function randomSelect (){
     // Here, we make computer select a radom box with the math method
-    let randomOne = Math.floor(Math.random()*possiblBoxes.length);
+    let randomOne = Math.floor(Math.random()*allBoxes.length);
+    // this bug was to work the code would color only two but would show two (if it was the same box woulnt highlight)
+    // for (let i = 0; i < possiblBoxes.length; i++){
+    //     if (possiblBoxes[i].id == randomOne){
+    //         possiblBoxes.splice(i, 1)
+    //     }
+    // }
+    allBoxes[randomOne].style.background = 'rgb(114, 14, 14)';
     //console.log just to check
-    console.log(allBoxes[randomOne])
-    // tile = randomOne
+    // console.log(allBoxes[randomOne])
+    console.log(possiblBoxes)
+    
     ///styling color for the elements that is suppsed to be lit
-    // allBoxes[randomOne].style.background = 'rgb(114, 14, 14)';
     console.log(randomOne)
     return randomOne
 }
 // each time I click, I will see success and oop if use select the non lit one
+function checkForWin (){
+    if (score == 3){
+        alert('You won')
+        restart()
+    }
+}
 function tileClick (e) {
     // boxesSelected.push(e.target.id)
     let tileId = Number(e.target.id)
@@ -69,13 +82,10 @@ function tileClick (e) {
         score += 1
         scoreBoard.innerText = score
         console.log(score,'this is score')
+        checkForWin()
         succesClick = 0
         boxesSelected = []
         selectTile();
-    }
-    if (score == 3){
-        alert('You won')
-        restart()
     }
     // console.log('this is boxes selected: ', boxesSelected)
     // console.log(e.target.id)
@@ -88,7 +98,6 @@ function selectTile (){
     for (let i = 0; i < 3; i++){
         selectedTile = randomSelect();
         boxesSelected.push(selectedTile);
-        allBoxes[boxesSelected[i]].style.background = 'rgb(114, 14, 14)';
         setTimeout(function (){
             allBoxes[boxesSelected[i]].style.background = '#eee';
         },1500)
@@ -97,10 +106,7 @@ function selectTile (){
     };
     console.log(selectedTile);
     console.log(boxesSelected, 'this is selected boxes');
-
-
 }
-
 // setInterval(randomselect, 2000)
 console.log(allBoxes)
 

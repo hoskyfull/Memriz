@@ -48,6 +48,5 @@ body {
 }
 #scoreBox {
     display: grid;
-    background-color: aqua;
     border: black;
 }
