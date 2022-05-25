@@ -11,12 +11,15 @@ let score = 0
 let start = document.getElementById('start').addEventListener('click', function (){
     selectTile()
 })
-let stop = document.getElementById('restart').addEventListener('click',function(){
+function restart (){
     boxesSelected = []
     score = 0
+    scoreBoard.innerText = score
     succesClick = 0
-})
-
+}
+let stop = document.getElementById('restart').addEventListener('click', restart)
+let scoreBoard = document.getElementById('scoreBox')
+scoreBoard.innerText = score
 
 //Creates all the divs through the DOM and give each box a number 
 for (let i = 0; i <(boardSize*boardSize); i++){
@@ -33,6 +36,7 @@ for (let i = 0; i <(boardSize*boardSize); i++){
 
 //We are making an array of the divs
 let allBoxes = Array.from(document.querySelectorAll('.box'))
+let possiblBoxes = allBoxes
 const startGame = () => (
     allBoxes.forEach(tile => tile.addEventListener('click', tileClick)))
     startGame()
@@ -40,12 +44,12 @@ const startGame = () => (
 // this is the function that does th random selection
 function randomSelect (){
     // Here, we make computer select a radom box with the math method
-    let randomOne = Math.floor(Math.random()*allBoxes.length);
+    let randomOne = Math.floor(Math.random()*possiblBoxes.length);
     //console.log just to check
     console.log(allBoxes[randomOne])
     // tile = randomOne
     ///styling color for the elements that is suppsed to be lit
-    allBoxes[randomOne].style.background = 'rgb(114, 14, 14)';
+    // allBoxes[randomOne].style.background = 'rgb(114, 14, 14)';
     console.log(randomOne)
     return randomOne
 }
@@ -58,14 +62,20 @@ function tileClick (e) {
         succesClick += 1;
         console.log(succesClick)
     }else {
-        console.log('Oops')
+        alert('Oops')
+        restart()
     }
     if (succesClick == 3){
         score += 1
+        scoreBoard.innerText = score
         console.log(score,'this is score')
         succesClick = 0
         boxesSelected = []
         selectTile();
+    }
+    if (score == 3){
+        alert('You won')
+        restart()
     }
     // console.log('this is boxes selected: ', boxesSelected)
     // console.log(e.target.id)
@@ -78,9 +88,11 @@ function selectTile (){
     for (let i = 0; i < 3; i++){
         selectedTile = randomSelect();
         boxesSelected.push(selectedTile);
+        allBoxes[boxesSelected[i]].style.background = 'rgb(114, 14, 14)';
         setTimeout(function (){
             allBoxes[boxesSelected[i]].style.background = '#eee';
-        },1000)
+        },1500)
+
 
     };
     console.log(selectedTile);
