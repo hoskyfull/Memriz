@@ -1,5 +1,5 @@
-let boardSize = 8
-// let boxesSelected = []
+let boardSize = 20
+let boxesSelected = []
 // calling the board from the html
 let board = document.getElementById('board')
 // here I create the columns and rows
@@ -8,10 +8,12 @@ board.style.gridTemplateRows = 'repeat('+boardSize+', 25px)';
 let tile = null
 let score = 0
 let start = document.getElementById('start').addEventListener('click', function (){
-    t = setInterval(randomSelect, 1000)
+    // t = setInterval(randomSelect, 1000)
+    selectTile()
 })
 let stop = document.getElementById('restart').addEventListener('click',function(){
-    clearInterval(t)
+    // clearInterval(t)
+    boxesSelected = []
     allBoxes[tile].style.background = '#eee';
 })
 
@@ -26,6 +28,8 @@ for (let i = 0; i <(boardSize*boardSize); i++){
     //
     board.appendChild(box);
 }
+// let scoreBox = document.createElement('div')
+// scoreBox.setAttribute('id', boxScore)
 
 //We are making an array of the divs
 let allBoxes = Array.from(document.querySelectorAll('.box'))
@@ -35,11 +39,6 @@ const startGame = () => (
 
 // this is the function that does th random selection
 function randomSelect (){
-    if (tile === null){
-        // console.log(allBoxes) 
-    } else {
-        allBoxes[tile].style.background = '#eee';
-    } 
     // Here, we make computer select a radom box with the math method
     let randomOne = Math.floor(Math.random()*allBoxes.length);
     //console.log just to check
@@ -48,6 +47,7 @@ function randomSelect (){
     ///styling color for the elements that is suppsed to be lit
     allBoxes[tile].style.background = 'rgb(114, 14, 14)';
     console.log(tile)
+    return randomOne
 }
 
 // each time I click, I will see success and oop if use select the non lit one
@@ -61,8 +61,20 @@ function tileClick (e) {
     // console.log('this is boxes selected: ', boxesSelected)
     // console.log(e.target.id)
 }
+function selectTile (){
+    let selectedTile = null;
+    for (let i = 0; i < 3; i++){
+        setTimeout(function (){
+            selectedTile = randomSelect();
+            boxesSelected.push(selectedTile);
+        },1000)
 
-function startbutton(e){
+    };
+    console.log(selectedTile);
+
+}
+
+function startButton(e){
 
 }
 
