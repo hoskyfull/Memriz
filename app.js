@@ -1,20 +1,20 @@
-let boardSize = 20
+let boardSize = 6
 let boxesSelected = []
 // calling the board from the html
 let board = document.getElementById('board')
 // here I create the columns and rows
-board.style.gridTemplateColumns = 'repeat('+boardSize+', 25px)';
-board.style.gridTemplateRows = 'repeat('+boardSize+', 25px)';
+board.style.gridTemplateColumns = 'repeat('+boardSize+',50px)';
+board.style.gridTemplateRows = 'repeat('+boardSize+', 50px)';
 let tile = null
+let succesClick = 0
 let score = 0
 let start = document.getElementById('start').addEventListener('click', function (){
-    // t = setInterval(randomSelect, 1000)
     selectTile()
 })
 let stop = document.getElementById('restart').addEventListener('click',function(){
-    // clearInterval(t)
     boxesSelected = []
-    allBoxes[tile].style.background = '#eee';
+    score = 0
+    succesClick = 0
 })
 
 
@@ -43,38 +43,49 @@ function randomSelect (){
     let randomOne = Math.floor(Math.random()*allBoxes.length);
     //console.log just to check
     console.log(allBoxes[randomOne])
-    tile = randomOne
+    // tile = randomOne
     ///styling color for the elements that is suppsed to be lit
-    allBoxes[tile].style.background = 'rgb(114, 14, 14)';
-    console.log(tile)
+    allBoxes[randomOne].style.background = 'rgb(114, 14, 14)';
+    console.log(randomOne)
     return randomOne
 }
-
 // each time I click, I will see success and oop if use select the non lit one
 function tileClick (e) {
     // boxesSelected.push(e.target.id)
-    if (e.target.id == tile){
-        console.log('Success')
+    let tileId = Number(e.target.id)
+    console.log(tileId)
+    if (boxesSelected.includes(tileId)){
+        succesClick += 1;
+        console.log(succesClick)
     }else {
         console.log('Oops')
+    }
+    if (succesClick == 3){
+        score += 1
+        console.log(score,'this is score')
+        succesClick = 0
+        boxesSelected = []
+        selectTile();
     }
     // console.log('this is boxes selected: ', boxesSelected)
     // console.log(e.target.id)
 }
+
+//created a function that will will show how many to select at a time
+//
 function selectTile (){
     let selectedTile = null;
     for (let i = 0; i < 3; i++){
+        selectedTile = randomSelect();
+        boxesSelected.push(selectedTile);
         setTimeout(function (){
-            selectedTile = randomSelect();
-            boxesSelected.push(selectedTile);
+            allBoxes[boxesSelected[i]].style.background = '#eee';
         },1000)
 
     };
     console.log(selectedTile);
+    console.log(boxesSelected, 'this is selected boxes');
 
-}
-
-function startButton(e){
 
 }
 
