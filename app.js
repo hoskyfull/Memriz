@@ -1,3 +1,4 @@
+//this variable can be changed to a bigger box. Just in case I make levels in game
 let boardSize = 6
 let boxesSelected = []
 // calling the board from the html
@@ -11,6 +12,7 @@ let score = 0
 let start = document.getElementById('start').addEventListener('click', function (){
     selectTile()
 })
+//restarts game
 function restart (){
     boxesSelected = []
     score = 0
@@ -28,11 +30,8 @@ for (let i = 0; i <(boardSize*boardSize); i++){
     box.setAttribute('class', 'box')
     //if i do not put a variable and just leave im it will automatically assign a number
     box.setAttribute('id', `${i}`)
-    //
     board.appendChild(box);
 }
-// let scoreBox = document.createElement('div')
-// scoreBox.setAttribute('id', boxScore)
 
 //We are making an array of the divs
 let allBoxes = Array.from(document.querySelectorAll('.box'))
@@ -45,18 +44,17 @@ const startGame = () => (
 function randomSelect (){
     // Here, we make computer select a radom box with the math method
     let randomOne = Math.floor(Math.random()*allBoxes.length);
-    // this bug was to work the code would color only two but would show two (if it was the same box woulnt highlight)
+    // this code was to work the a bug which would color only 
+    //two but would show two (if it was the same box woulnt highlight)
+
     // for (let i = 0; i < possiblBoxes.length; i++){
     //     if (possiblBoxes[i].id == randomOne){
     //         possiblBoxes.splice(i, 1)
     //     }
     // }
+
     allBoxes[randomOne].style.background = 'rgb(114, 14, 14)';
-    //console.log just to check
-    // console.log(allBoxes[randomOne])
     console.log(possiblBoxes)
-    
-    ///styling color for the elements that is suppsed to be lit
     console.log(randomOne)
     return randomOne
 }
@@ -67,6 +65,7 @@ function checkForWin (){
         restart()
     }
 }
+//function to alert player when clicking right or wrong tile
 function tileClick (e) {
     // boxesSelected.push(e.target.id)
     let tileId = Number(e.target.id)
@@ -78,6 +77,7 @@ function tileClick (e) {
         alert('Oops')
         restart()
     }
+    ///this explains under what winning conditions the game will restart
     if (succesClick == 3){
         score += 1
         scoreBoard.innerText = score
