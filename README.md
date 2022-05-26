@@ -12,6 +12,8 @@ Lights on... lights out! Remember that? Maybe you do not but if you do, you migh
 ## User Story
 Memriz is a game where you can practice your memory elasticity and work your memory muscles! The goal is to rememner the highlighted tiles that will reveal themselves for a moment. The player will see a 6x6 grid, a score and a start/clear button. Once the player clicks 'Start', 3 tiles will light up in a color for 1.50 seconds. The player has to remember which tiles light up and will then click on those tiles. If the player has selected the 3 tiles 3 times succesfully, the player wins. Otherwise if the player selects the wrong wrong one, then the player loses and the points reset. 
 
+---
+
 ### Future work
 
 * Include a timer
@@ -26,15 +28,17 @@ Memriz is a game where you can practice your memory elasticity and work your mem
 
 * Improve the alert display to a more sofisticated one
 
+---
+
 ### Bugs
 
 There are several bugs to the game that can be worked in the future. 
 
-* Highlighted tiles sometimes do not match. In other words, game will highlight only 2 instead of 3, even though it does select the boxes (we can see it in the console.log). Seems that when it selects the same tile number/id in the random selection more than once, it does not highlight. Maybe create a for loop that will remove already highlited tiles with a condition of not repeating that same tile.
+* Highlighted tiles sometimes do not match code. In other words, game will highlight only 2 instead of 3, even though it does select the boxes (we can see it in the console.log). Seems that when it selects the same tile number/id in the random selection more than once, it does not highlight. Maybe create a for loop that will remove already highlited tiles with a condition of not repeating that same tile. For example: whe it selects a random number/id, the console.log would look like this: "(3) [33, 28, 28]'This is selected tiles'". When it selects the same number/id of the tile, it will not highlight a second the 28 two times but 1 time (highlighting 28 on top twice).
 
 * Clear button does not clear sometimes, having to refresh the page. 
 
-
+---
 
 ## Technologies Used:
 
@@ -44,7 +48,7 @@ There are several bugs to the game that can be worked in the future.
 
 * JavaScript (logic and DOM manipulation)
 
-
+---
 
 ## Wireframes (what game will look like):
 
