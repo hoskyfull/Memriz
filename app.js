@@ -12,6 +12,8 @@ let score = 0
 let start = document.getElementById('start').addEventListener('click', function (){
     selectTile()
 })
+
+
 //restarts game
 function restart (){
     boxesSelected = []
@@ -19,9 +21,12 @@ function restart (){
     scoreBoard.innerText = score
     succesClick = 0
 }
+
+
 let stop = document.getElementById('restart').addEventListener('click', restart)
 let scoreBoard = document.getElementById('score')
 scoreBoard.innerText = score
+
 
 //Creates all the divs through the DOM and give each box a number 
 for (let i = 0; i <(boardSize*boardSize); i++){
@@ -33,12 +38,15 @@ for (let i = 0; i <(boardSize*boardSize); i++){
     board.appendChild(box);
 }
 
+
 //We are making an array of the divs
 let allBoxes = Array.from(document.querySelectorAll('.box'))
 let possiblBoxes = allBoxes
 const startGame = () => (
     allBoxes.forEach(tile => tile.addEventListener('click', tileClick)))
     startGame()
+
+
 
 // this is the function that does th random selection
 function randomSelect (){
@@ -58,6 +66,8 @@ function randomSelect (){
     console.log(randomOne)
     return randomOne
 }
+
+
 // each time I click, I will see success and oop if use select the non lit one
 function checkForWin (){
     if (score == 3){
@@ -65,6 +75,8 @@ function checkForWin (){
         restart()
     }
 }
+
+
 //function to alert player when clicking right or wrong tile
 function tileClick (e) {
     // boxesSelected.push(e.target.id)
@@ -77,6 +89,10 @@ function tileClick (e) {
         alert('Oops')
         restart()
     }
+
+
+
+
     ///this explains under what winning conditions the game will restart
     if (succesClick == 3){
         score += 1
@@ -90,6 +106,8 @@ function tileClick (e) {
     // console.log('this is boxes selected: ', boxesSelected)
     // console.log(e.target.id)
 }
+
+
 
 //created a function that will will show how many to select at a time
 //
