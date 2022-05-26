@@ -24,6 +24,8 @@ Memriz is a game where you can practice your memory elasticity and work your mem
 
 * Increase the number of highlited number of tiles
 
+* Improve the alert display to a more sofisticated one
+
 ### Bugs
 
 There are several bugs to the game that can be worked in the future. 
@@ -35,9 +37,14 @@ There are several bugs to the game that can be worked in the future.
 
 
 ## Technologies Used:
-HTML
-CSS
-JavaScript (logic and DOM manipulation)
+
+* HTML
+
+* CSS
+
+* JavaScript (logic and DOM manipulation)
+
+
 
 ## Wireframes (what game will look like):
 
