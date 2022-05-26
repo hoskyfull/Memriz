@@ -6,6 +6,7 @@ let board = document.getElementById('board')
 // here I create the columns and rows
 board.style.gridTemplateColumns = 'repeat('+boardSize+',50px)';
 board.style.gridTemplateRows = 'repeat('+boardSize+', 50px)';
+console.log('Testing')
 let tile = null
 let succesClick = 0
 let score = 0
