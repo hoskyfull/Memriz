@@ -61,7 +61,7 @@ function randomSelect (){
     //     }
     // }
 
-    allBoxes[randomOne].style.background = 'rgb(114, 14, 14)';
+    allBoxes[randomOne].style.background = 'rgb(109, 26, 54)';
     console.log(possiblBoxes)
     console.log(randomOne)
     return randomOne

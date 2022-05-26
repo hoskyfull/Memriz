@@ -28,6 +28,8 @@ Memriz is a game where you can practice your memory elasticity and work your mem
 
 * Improve the alert display to a more sofisticated one
 
+* Maybe add animation to the background
+
 ---
 
 ### Bugs
