@@ -6,6 +6,10 @@
 
 Lights on... lights out! Remember that? Maybe you do not but if you do, you might win. Memriz is a game that challenges you memory. The more you win, the harder it gets! 
 
+### Direct link
+
+https://hoskyfull.github.io/Memriz/
+
 
 ---
 
